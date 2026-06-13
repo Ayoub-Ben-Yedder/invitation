@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>دعوة حفل خطوبة أشرف و مها</title>
+    <style>
+        @font-face {
+            font-family: 'Arslan Wessam';
+            src: url('arslan_wessam_b.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'AE Furat';
+            src: url('font.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        :root {
+            --paper: #f8f0e6;
+            --paper-deep: #ead8c4;
+            --ink: #2f1f1d;
+            --gold: #b48a4d;
+            --seal: #8b1f28;
+            --seal-shadow: #5f1119;
+            --bg-a: #180d0f;
+            --bg-b: #32181b;
+            --bg-c: #5d2a31;
+            --rose-mist: #f2d7c6;
+            --cream-light: #fff8ef;
+            --wine: #6f242b;
+            --glow: rgba(247, 210, 169, 0.32);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            width: 100%;
+            min-height: 100%;
+            margin: 0;
+        }
+
+        body {
+            font-family: 'Arslan Wessam', Georgia, serif;
+            background: #8f5f3e;
+            color: var(--ink);
+            overflow-x: hidden;
+            text-align: center;
+            position: relative;
+            isolation: isolate;
+        }
+
+        p {
+            font-family: 'AE Furat', Georgia, serif;
+        }
+
+        body::before,
+        body::after {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        body::before {
+            background: url('flowers.jpg') center/cover no-repeat;
+            filter: blur(7px) saturate(0.95) brightness(0.82);
+            transform: scale(1.08);
+            opacity: 1;
+        }
+
+        body::after {
+            background:
+                radial-gradient(circle at 20% 16%, rgba(255, 238, 220, 0.18), transparent 28%),
+                radial-gradient(circle at 80% 84%, rgba(59, 22, 28, 0.34), transparent 34%),
+                linear-gradient(180deg, rgba(20, 10, 10, 0.2), rgba(20, 10, 10, 0.44));
+        }
+
+        .scene {
+            position: relative;
+            min-height: 100vh;
+        }
+
+        .invite {
+            position: relative;
+            z-index: 1;
+            min-height: 200vh;
+            padding: 0;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(18px);
+            transition:
+                opacity 1400ms ease,
+                transform 1400ms ease,
+                visibility 0s linear 1400ms;
+        }
+
+        .scene.invite-visible .invite {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+            transition-delay: 0ms;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            padding: clamp(4.5rem, 7vw, 7rem) 1.5rem;
+        }
+
+        .hero-copy {
+            width: min(920px, 92vw);
+            padding: clamp(2rem, 5vw, 4rem);
+            border-radius: 30px;
+            position: relative;
+            overflow: hidden;
+            display: grid;
+            justify-items: center;
+            text-align: center;
+            background:
+                linear-gradient(180deg, rgba(255, 250, 244, 0.9), rgba(246, 233, 217, 0.95)),
+                linear-gradient(120deg, rgba(255, 255, 255, 0.5), transparent 60%);
+            box-shadow:
+                0 42px 110px rgba(15, 8, 10, 0.42),
+                0 12px 30px rgba(111, 36, 43, 0.12),
+                0 0 0 1px rgba(255, 245, 229, 0.7) inset;
+            border: 1px solid rgba(146, 94, 58, 0.26);
+            backdrop-filter: blur(3px);
+        }
+
+        .hero-copy::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.65), transparent 28%),
+                linear-gradient(135deg, rgba(255, 255, 255, 0.3), transparent 40%);
+            pointer-events: none;
+            opacity: 0.9;
+        }
+
+        .hero-copy::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            bottom: -22px;
+            width: 72%;
+            height: 28px;
+            transform: translateX(-50%);
+            background: radial-gradient(ellipse at center, rgba(56, 20, 18, 0.28), transparent 72%);
+            filter: blur(12px);
+            pointer-events: none;
+        }
+
+        .hero-copy > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .eyebrow {
+            margin: 0 0 0.9rem;
+            letter-spacing: 0.1em;
+            font-size: 2rem;
+            color: rgba(47, 31, 29, 0.68);
+            font-weight: 500;
+        }
+
+        .hero h1 {
+            margin: 0;
+            width: 100%;
+            text-align: center;
+            font-size: clamp(3rem, 8vw, 5.4rem);
+            line-height: 0.95;
+            color: var(--wine);
+            text-shadow: 0 10px 28px rgba(75, 25, 31, 0.2);
+        }
+
+        .hero p {
+            margin: 1.3rem auto 0;
+            max-width: 34rem;
+            text-align: center;
+            font-size: clamp(1.7rem, 2.6vw, 2.3rem);
+            line-height: 1.75;
+            color: rgba(47, 31, 29, 0.84);
+        }
+
+        .details {
+            min-height: 100vh;
+            padding: 1rem 1.5rem 6rem;
+            display: grid;
+            align-items: start;
+        }
+
+        .details-grid {
+            width: min(1120px, 92vw);
+            margin: 0 auto;
+            display: grid;
+            gap: 2.2rem;
+            grid-template-columns: repeat(12, minmax(0, 1fr));
+            background: linear-gradient(160deg, rgba(56, 23, 27, 0.78), rgba(34, 14, 16, 0.82));
+            border: 1px solid rgba(255, 222, 185, 0.2);
+            border-radius: 30px;
+            padding: clamp(1.1rem, 2vw, 2rem);
+            box-shadow: 0 24px 70px rgba(17, 8, 9, 0.4);
+        }
+
+        .details-text {
+            grid-column: 1 / span 5;
+            padding: 1.6rem;
+            border-radius: 20px;
+            background: linear-gradient(140deg, rgba(255, 238, 220, 0.13), rgba(255, 216, 186, 0.06));
+            border: 1px solid rgba(255, 230, 198, 0.16);
+            text-align: right;
+        }
+
+        .details-text h2 {
+            margin: 0;
+            font-size: clamp(2rem, 4vw, 3.6rem);
+            color: #f7efe6;
+        }
+
+        .details-text p {
+            margin: 1rem 0 0;
+            color: rgba(255, 241, 225, 0.9);
+            line-height: 1.85;
+            font-size: clamp(1.18rem, 2.2vw, 1.52rem);
+        }
+
+        .location-card {
+            grid-column: 7 / -1;
+            border-radius: 28px;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 231, 198, 0.22);
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.3);
+            min-height: 360px;
+        }
+
+        .location-card iframe {
+            display: block;
+            width: 100%;
+            height: 100%;
+            min-height: 390px;
+            border: none;
+            filter: saturate(0.96) contrast(1.03);
+        }
+
+        .envelope {
+            position: fixed;
+            left: 0;
+            top: 50%;
+            width: 100vw;
+            height: 70vh;
+            transform: translateY(-50%);
+            z-index: 5;
+            perspective: 1800px;
+            pointer-events: auto;
+            /*transition: opacity 1400ms ease 1000ms;*/
+            transition: opacity 700ms ease 200ms;
+            filter: drop-shadow(0 28px 35px rgba(32, 12, 12, 0.34));
+        }
+
+        .scene.open .envelope {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .scene.envelope-gone .envelope {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: opacity 180ms ease, visibility 0s linear 180ms;
+        }
+
+        .envelope-body {
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(180deg, rgba(255, 255, 255, 0.18), rgba(0, 0, 0, 0.12)),
+                linear-gradient(135deg, #f8ecd8, #e7c89d 54%, #cb9f73 100%);
+            border-top: 2px solid rgba(255, 245, 225, 0.68);
+            border-bottom: 3px solid rgba(144, 95, 57, 0.5);
+        }
+
+        .envelope-body::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at 50% 52%, rgba(255, 255, 255, 0.26), transparent 34%),
+                linear-gradient(135deg, transparent 48%, rgba(95, 50, 30, 0.16), transparent 51%),
+                linear-gradient(45deg, transparent 48%, rgba(95, 50, 30, 0.16), transparent 51%);
+            pointer-events: none;
+        }
+
+        .envelope-body::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            width: min(34vw, 430px);
+            height: 45%;
+            transform: translateX(-50%);
+            clip-path: polygon(0 100%, 50% 0, 100% 100%);
+            background: linear-gradient(180deg, rgba(255, 246, 231, 0.4), rgba(133, 82, 50, 0.24));
+            opacity: 0.65;
+        }
+
+        .flap {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 50%;
+            transform-origin: top center;
+            transform: rotateX(0deg);
+            transform-style: preserve-3d;
+            clip-path: polygon(0 0, 100% 0, 50% 100%);
+            background:
+                radial-gradient(circle at 50% 18%, rgba(255, 240, 221, 0.18), transparent 34%),
+                linear-gradient(180deg, #eecfa8 0%, #d7ae76 52%, #bf8f57 100%),
+                linear-gradient(135deg, rgba(255, 255, 255, 0.14), transparent 36%);
+            box-shadow:
+                inset 0 -10px 18px rgba(72, 40, 28, 0.38),
+                inset 0 1px 0 rgba(255, 245, 227, 0.35),
+                0 4px 26px rgba(52, 25, 19, 0.34);
+            transition: transform 1.8s ease;
+            z-index: 7;
+        }
+
+        .scene.open .flap {
+            transform: rotateX(-175deg) translateY(-2%);
+        }
+
+        .seal-button {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 170px;
+            height: 170px;
+            border: 0;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            cursor: pointer;
+            background:
+                radial-gradient(circle at 35% 30%, rgba(255, 220, 203, 0.24), transparent 34%),
+                url('seal.png') center/cover no-repeat,
+                radial-gradient(circle at 50% 50%, var(--seal), var(--seal-shadow));
+            box-shadow:
+                0 18px 32px rgba(0, 0, 0, 0.28),
+                inset 0 2px 0 rgba(255, 230, 220, 0.18);
+            z-index: 9;
+            transition: transform 420ms ease, opacity 580ms ease, filter 420ms ease;
+            animation: waxPulse 3.2s ease-in-out infinite;
+        }
+
+        .seal-button:hover,
+        .seal-button:focus-visible {
+            transform: translate(-50%, -50%) scale(1.05);
+            filter: brightness(1.05);
+            outline: none;
+        }
+
+        .seal-button::before {
+            content: "";
+            position: absolute;
+            inset: -18px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255, 224, 198, 0.18), transparent 60%);
+            opacity: 0;
+            transition: opacity 420ms ease;
+        }
+
+        .seal-button::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 62%;
+            height: 62%;
+            transform: translate(-50%, -50%);
+            background: url('letters_trans.png') center/contain no-repeat;
+            pointer-events: none;
+            filter: drop-shadow(0 2px 3px rgba(40, 16, 16, 0.3)) invert(1);
+        }
+
+        .seal-button:hover::before,
+        .seal-button:focus-visible::before {
+            opacity: 1;
+        }
+
+        .scene.open .seal-button {
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(0.25);
+            pointer-events: none;
+        }
+
+        .seal-hint {
+            position: absolute;
+            left: 50%;
+            top: calc(50% + 130px);
+            transform: translateX(-50%);
+            font-size: 2rem;
+            letter-spacing: 0em;
+            color: rgba(255, 246, 239, 0.82);
+            text-shadow: 0 4px 12px rgba(53, 20, 22, 0.45);
+            z-index: 9;
+            transition: opacity 420ms ease;
+        }
+
+        .scene.open .seal-hint {
+            opacity: 0;
+        }
+
+        .seal-sparkles {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 320px;
+            height: 320px;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            z-index: 8;
+            opacity: 0;
+        }
+
+        .scene.open .seal-sparkles {
+            animation: sparkle 1.7s ease forwards;
+        }
+
+        .seal-sparkles span {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 8px;
+            height: 8px;
+            margin: -4px 0 0 -4px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255, 236, 212, 1), rgba(190, 156, 105, 0.35) 48%, transparent 70%);
+            filter: blur(0.1px);
+            animation: particle 1.4s ease-out forwards;
+        }
+
+        .seal-sparkles span:nth-child(2n) {
+            width: 5px;
+            height: 5px;
+        }
+
+        .seal-sparkles span:nth-child(1) {
+            --x: -118px;
+            --y: -58px;
+            --delay: 0ms;
+        }
+
+        .seal-sparkles span:nth-child(2) {
+            --x: -74px;
+            --y: -102px;
+            --delay: 40ms;
+        }
+
+        .seal-sparkles span:nth-child(3) {
+            --x: -6px;
+            --y: -122px;
+            --delay: 80ms;
+        }
+
+        .seal-sparkles span:nth-child(4) {
+            --x: 76px;
+            --y: -98px;
+            --delay: 120ms;
+        }
+
+        .seal-sparkles span:nth-child(5) {
+            --x: 122px;
+            --y: -28px;
+            --delay: 160ms;
+        }
+
+        .seal-sparkles span:nth-child(6) {
+            --x: 110px;
+            --y: 52px;
+            --delay: 200ms;
+        }
+
+        .seal-sparkles span:nth-child(7) {
+            --x: 56px;
+            --y: 112px;
+            --delay: 240ms;
+        }
+
+        .seal-sparkles span:nth-child(8) {
+            --x: -28px;
+            --y: 118px;
+            --delay: 280ms;
+        }
+
+        .scene.open .seal-sparkles span {
+            animation-delay: var(--delay);
+        }
+
+        .scene.invite-visible .hero-copy,
+        .scene.invite-visible .details-grid {
+            animation: riseIn 1100ms ease both;
+        }
+
+        .scene.invite-visible .details-grid {
+            animation-delay: 180ms;
+        }
+
+        @keyframes sparkle {
+            0% {
+                opacity: 0;
+            }
+
+            20% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
+
+        @keyframes waxPulse {
+
+            0%,
+            100% {
+                transform: translate(-50%, -50%) scale(1);
+                box-shadow:
+                    0 18px 32px rgba(0, 0, 0, 0.28),
+                    inset 0 2px 0 rgba(255, 230, 220, 0.18);
+            }
+
+            50% {
+                transform: translate(-50%, -50%) scale(1.03);
+                box-shadow:
+                    0 22px 38px rgba(0, 0, 0, 0.34),
+                    0 0 22px var(--glow),
+                    inset 0 2px 0 rgba(255, 230, 220, 0.24);
+            }
+        }
+
+        @keyframes riseIn {
+            from {
+                opacity: 0;
+                transform: translateY(18px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes particle {
+            0% {
+                opacity: 0;
+                transform: translate(0, 0) scale(0.4);
+            }
+
+            20% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+                transform: translate(var(--x), var(--y)) scale(1.2);
+            }
+        }
+
+        @media (max-width: 900px) {
+            .envelope {
+                height: 62vh;
+            }
+
+            .details-grid {
+                grid-template-columns: 1fr;
+                padding: 1.1rem;
+            }
+
+            .details-text,
+            .location-card {
+                grid-column: auto;
+            }
+
+            .location-card {
+                min-height: 300px;
+            }
+
+            .details-text {
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .envelope {
+                height: 58vh;
+            }
+
+            .seal-button {
+                width: 160px;
+                height: 160px;
+            }
+
+            .seal-hint {
+                top: calc(50% + 108px);
+                font-size: 0.7rem;
+            }
+
+            .hero-copy {
+                padding: 1.5rem;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: 1ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 1ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="scene" id="scene">
+        <section class="invite" aria-label="Wedding invitation content">
+            <div class="hero">
+                <div class="hero-copy">
+                    <p>
+            بسم الله الرحمن الرحيم
+                    </p>
+
+                    <p>
+                        ﴿وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً﴾
+                    </p>
+                    <p>
+                        نتشرف بدعوتكم لحضور سهرة خطوبة <br>
+                    </p>
+                    <h1>أشرف و مهــــا</h1>
+                    <p>
+                        و ذلك بمشيئة الله يوم السبت<br>
+                        20.06.2026
+                    </p>
+                </div>
+            </div>
+
+            <section class="details">
+                <div class="details-grid">
+                    <div class="details-text">
+                        <h2>بمشيئة الله</h2>
+
+                        <p>
+                            بقلوب يملؤها الحمد والشكر لله تعالى،
+                            ندعوكم لمشاركتنا فرحة إتمام خطبتنا،
+                            سائلين الله أن يجعل هذا اللقاء لقاءً مباركًا محفوفًا بالخير والبركة.
+                        </p>
+
+                        <p>
+                            حضوركم ودعاؤكم لنا هو أعظم ما نرجوه في هذا اليوم المبارك،
+                            فأنتم أهلٌ للمحبة والتقدير، ووجودكم يزيد فرحتنا نورًا وسرورًا.
+                        </p>
+                    </div>
+
+                    <div class="location-card">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3158.0894201769447!2d10.9444444!3d33.8534444!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzPCsDUxJzEyLjQiTiAxMMKwNTYnNDAuMCJF!5e1!3m2!1sfr!2stn!4v1781382851885!5m2!1sfr!2stn" width="100%" height="600px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        <div class="envelope">
+            <div class="envelope-body"></div>
+            <div class="flap"></div>
+            <button class="seal-button" id="sealButton" type="button" aria-label="فتح الدعوة"></button>
+            <div class="seal-sparkles" id="sealSparkles" aria-hidden="true">
+                <span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span>
+            </div>
+            <div class="seal-hint" style="font-size: 1.2rem;">هذه الدعوة مخصصة لك حصريًا</div>
+        </div>
+    </main>
+
+    <script>
+        const scene = document.getElementById('scene');
+        const envelope = document.querySelector('.envelope');
+        const sealButton = document.getElementById('sealButton');
+        const sealSparkles = document.getElementById('sealSparkles');
+
+        let opened = false;
+
+        function playSparkles() {
+            sealSparkles.style.animation = 'none';
+            sealSparkles.offsetHeight;
+            sealSparkles.style.animation = '';
+        }
+
+        sealButton.addEventListener('click', () => {
+            if (opened) {
+                return;
+            }
+
+            opened = true;
+            scene.classList.add('open');
+            playSparkles();
+
+            window.setTimeout(() => {
+                scene.classList.add('envelope-gone');
+                scene.classList.add('invite-visible');
+            }, 900);
+        });
+    </script>
+</body>
+
+</html>
